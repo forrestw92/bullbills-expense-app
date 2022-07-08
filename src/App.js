@@ -2,18 +2,21 @@ import Sidebar from "./components/Sidebar";
 import Income from "./pages/Income";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
 
 function App() {
   return (
-    <div className="flex flex-nowrap h-full min-h-screen bg-slate-900">
+    <div className="flex flex-row flex-nowrap h-full w-full py-1.5 px-1.5">
       <Sidebar />
-
-      <main className="flex flex-row flex-wrap h-full w-full px-10 max-w-screen-xl mx-auto ">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/income" element={<Income />} />
-        </Routes>
-      </main>
+      <div className="flex flex-col w-full h-full mx-auto max-w-screen-xl">
+        <Header />
+        <div className="m-3 p-3 rounded h-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/income" element={<Income />} />
+          </Routes>
+        </div>
+      </div>
     </div>
   );
 }
