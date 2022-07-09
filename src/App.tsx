@@ -1,10 +1,11 @@
+import React from "react";
 import Sidebar from "./components/Sidebar";
 import Income from "./pages/Income";
 import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 
-function App() {
+const App = () => {
   return (
     <div className="flex flex-row flex-nowrap h-full w-full py-1.5 px-1.5">
       <Sidebar />
@@ -19,6 +20,5 @@ function App() {
       </div>
     </div>
   );
-}
-
+};
 export default App;
