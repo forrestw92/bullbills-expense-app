@@ -8,11 +8,12 @@
     "jsx": "react",
     "allowSyntheticDefaultImports": true
   },
-  "include": ["src/components",
+  "include": [
+    "src/**/*",
     "src/types/svg.d.ts"
   ],
   "exclude": [
         "node_modules",
         "**/*.spec.ts"
-    ],
+    ]
 }
