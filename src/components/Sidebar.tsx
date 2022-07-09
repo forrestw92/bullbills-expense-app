@@ -6,8 +6,15 @@ import {
   FiSettings,
 } from "react-icons/fi";
 import { Link } from "react-router-dom";
-// @ts-ignore
-const NavItem = ({ to, icon, text }) => {
+import Logo from "../images/logo.svg";
+
+interface NavItemProps {
+  to: string;
+  icon: React.ReactElement;
+  text: string;
+}
+
+const NavItem = ({ to, icon, text }: NavItemProps) => {
   return (
     <li className="text-md font-semibold text-gray-500 dark:text-gray-400 shadow dark:shadow-md rounded-md border-2 border-slate-200 dark:border-slate-700 hover:border-slate-500 hover:text-gray-700  dark:hover:border-slate-400 dark:hover:text-gray-300 my-3 ">
       <Link
@@ -30,6 +37,7 @@ const Sidebar = () => {
     <aside
       className={`z-10 w-64 flex flex-col flex-nowrap h-auto bg-white dark:bg-gray-800 shadow-sm  rounded h-full mr-1 `}
     >
+      <img src={Logo} alt="logo" className="w-32 h-32 mx-auto" />
       <div className="px-8 py-6 mx-auto">
         <h1 className="text-xl text-red-600 text-center font-bold">
           bullBills
