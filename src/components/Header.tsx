@@ -22,10 +22,15 @@ const Header = () => {
       <div className="w-1/3">
         <div className="w-full h-full flex items-center justify-end">
           <div className="relative">
-            <FiBell className="w-auto h-7 pr-4 text-gray-500" />
-            <span className="absolute right-3 -top-2 rounded-full bg-red-500 w-5 h-5 flex items-center justify-center font-bold text-white text-xs">
-              <span>9+</span>
-            </span>
+            <button type="button" id="notification-menu">
+              <FiBell
+                className="w-auto h-7 pr-4 text-gray-500"
+                aria-hidden="true"
+              />
+              <span className="absolute right-3 -top-2 rounded-full bg-red-500 w-5 h-5 flex items-center justify-center font-bold text-white text-xs">
+                <span aria-label="Notifications">9+</span>
+              </span>
+            </button>
           </div>
           <div className="w-4 text-gray-600">|</div>
           <div className="flex flex-col flex-nowrap text-center pr-3">
