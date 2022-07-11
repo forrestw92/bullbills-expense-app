@@ -1,73 +1,15 @@
 import React, { useState } from "react";
 import {
-  FiArrowDownRight,
-  FiChevronRight,
-  FiCircle,
+  FiBarChart,
   FiDollarSign,
+  FiEye,
   FiHome,
   FiSettings,
 } from "react-icons/fi";
-import { Link, useLocation } from "react-router-dom";
 import Logo from "../images/logo.svg";
-
-interface NavItemProps {
-  to: string;
-  Icon: React.ElementType;
-  text: string;
-  isDropdown: boolean;
-}
-const NavItem = ({ to, Icon, text, isDropdown }: NavItemProps) => {
-  const isActive = useLocation().pathname === to;
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <li className={`cursor-pointer `}>
-      <Link
-        to={to}
-        className={`${
-          isActive
-            ? "bg-gradient-to-r from-blue-900 to-blue-800 shadow dark:shadow-md"
-            : ""
-        } flex flex-row flex-nowrap items-center py-2 px-3 w-full h-full align-middle hover:shadow-md hover:shadow-blue-600 hover:bg-gradient-to-r hover:from-blue-900 hover:to-blue-800 font-semibold text-gray-500  dark:text-gray-400  border-none my-2 rounded-md border-2  dark:border-slate-700 hover:border-slate-500 hover:text-gray-700  dark:hover:border-slate-400 dark:hover:text-gray-300`}
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        <Icon className="text-2xl before:bg-blue-900 before:w-36 before:h-36 before:left-0 before:absolute " />
-        <span className="pl-5 py-1.5 text-md">{text}</span>
-        {isDropdown && <FiChevronRight className="text-md ml-auto" />}
-      </Link>
-
-      <ul
-        className={`${
-          isOpen ? "scale-y-100 max-h-80" : "scale-y-0 max-h-0"
-        }  origin-top transition-all  bg-gray-800 rounded-md mt-2 w-full h-fit`}
-      >
-        <li className="px-4 py-4 ">
-          <Link to="/" className="flex flex-row items-center">
-            <FiCircle className="text-xs h-2 text-gray-400" />
-            <span className="text-md pl-4 font-semibold text-gray-400">
-              Home
-            </span>
-          </Link>
-        </li>
-        <li className="px-4 py-4">
-          <Link to="/" className="flex flex-row items-center">
-            <FiCircle className="text-xs h-2 text-gray-400" />
-            <span className="text-md pl-4 font-semibold text-gray-400">
-              Home
-            </span>
-          </Link>
-        </li>
-        <li className="px-4 py-4">
-          <Link to="/" className="flex flex-row items-center">
-            <FiCircle className="text-xs h-2 text-gray-400" />
-            <span className="text-md pl-4 font-semibold text-gray-400">
-              Home
-            </span>
-          </Link>
-        </li>
-      </ul>
-    </li>
-  );
-};
+import NavDropDown from "./NavDropDown";
+import NavItem from "./NavItem";
+import { BiCreditCard } from "react-icons/bi";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,25 +30,20 @@ const Sidebar = () => {
       ></div>
       <nav className="px-4 ">
         <ul className="group flex flex-col flex-nowrap transition-all ">
-          <NavItem to="/" Icon={FiHome} text="Home" isDropdown={true} />
-          <NavItem
-            to="/income"
-            Icon={FiDollarSign}
-            text="Income"
-            isDropdown={true}
-          />
-          <NavItem
-            to="/expenses"
-            Icon={FiArrowDownRight}
-            text="Expenses"
-            isDropdown={true}
-          />
-          <NavItem
-            to="/settings"
-            Icon={FiSettings}
-            text="Settings"
-            isDropdown={true}
-          />
+          <NavItem to="/" Icon={FiHome} text="Home" />
+          <NavDropDown to="/income" Icon={FiDollarSign} text="Income">
+            <NavItem to={"/income/view"} Icon={FiEye} text={"View"} />
+            <NavItem to={"/income/charts"} Icon={FiBarChart} text={"Charts"} />
+          </NavDropDown>
+          <NavDropDown to="/expenses" Icon={BiCreditCard} text="Expenses">
+            <NavItem to={"/expenses/view"} Icon={FiEye} text={"View"} />
+            <NavItem
+              to={"/expenses/charts"}
+              Icon={FiBarChart}
+              text={"Charts"}
+            />
+          </NavDropDown>
+          <NavItem to="/settings" Icon={FiSettings} text="Settings" />
         </ul>
       </nav>
     </aside>
