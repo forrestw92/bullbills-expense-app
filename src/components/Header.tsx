@@ -20,7 +20,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="w-1/3">
+      <div className="w-1/2 lg:w-1/3">
         <div className="relative align-middle flex my-auto items-center justify-center h-16">
           <input
             className="bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white rounded-lg py-2 px-4 w-full border-none focus-visible:outline-blue-900 focus-visible:outline-none shadow-md"
@@ -35,8 +35,8 @@ const Header = () => {
           />
         </div>
       </div>
-      <div className="w-1/3">
-        <div className="w-full h-full flex items-center justify-end h-16">
+      <div className="w-1/2 lg:w-1/3">
+        <div className="w-full h-full flex items-center justify-end h-16 ml-auto">
           <div className="relative">
             <button type="button" id="notification-menu">
               <FiBell
