@@ -4,7 +4,7 @@ import { BiCreditCard, BiTrendingDown, BiTrendingUp } from "react-icons/bi";
 const Header = () => {
   return (
     <div className="h-20 w-auto bg-white dark:bg-gray-800 shadow-md rounded flex flex-row px-8 align-middle items-center">
-      <div className="w-1/3">
+      <div className="w-1/3 hidden lg:block">
         <div className="flex flex-row items-center align-middle items-center h-16 gap-5">
           <div className="flex flex-row">
             <BiTrendingUp className="text-2xl text-green-600" />
