@@ -1,5 +1,5 @@
 import React from "react";
-import { FiBell } from "react-icons/fi";
+import { FiBell, FiMenu } from "react-icons/fi";
 import { BiCreditCard, BiTrendingDown, BiTrendingUp } from "react-icons/bi";
 import Search from "./Search";
 
@@ -55,11 +55,25 @@ const HeaderStatsInfo = () => {
     </div>
   );
 };
-const Header = () => {
+interface HeaderProps {
+  openSidebar: Function;
+}
+const Header = ({ openSidebar }: HeaderProps) => {
   return (
     <div className="h-20 w-auto bg-white dark:bg-gray-800 shadow-md rounded flex flex-row px-8 align-middle items-center">
-      <div className="w-1/3 hidden lg:block">
-        <HeaderStatsInfo />
+      <div className="w-1/3 ">
+        <div className="hidden lg:block">
+          <HeaderStatsInfo />
+        </div>
+        <div className="block lg:hidden">
+          <button
+            type="button"
+            className="relative p-3"
+            onClick={() => openSidebar()}
+          >
+            <FiMenu className="w-full h-7 text-red-500" aria-hidden="true" />
+          </button>
+        </div>
       </div>
       <div className="hidden w-1/2 md:block lg:w-1/3">
         <Search />
