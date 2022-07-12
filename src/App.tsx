@@ -11,7 +11,7 @@ const App = () => {
     setSidebarOpen(!sidebarOpen);
   };
   return (
-    <div className="flex flex-row flex-nowrap h-full w-full py-1.5 px-1.5 gap-3">
+    <div className="flex flex-row flex-nowrap h-full w-full py-1.5 px-1.5 gap-3 overflow-x-hidden">
       <Sidebar isOpen={sidebarOpen} />
       <div
         className={` transition-all  flex flex-col w-full h-full mx-auto max-w-screen-xl ${
