@@ -17,7 +17,7 @@ interface SidebarProps {
 const Sidebar = ({ isOpen }: SidebarProps) => {
   return (
     <aside
-      className={`transition-all absolute lg:relative shadow-2xl shadow-slate-900 border-2 rounded-md border-slate-800 z-10 h-full flex w-auto dark:bg-slate-800 w-[16rem]  ${
+      className={`transition-all absolute top-0 left-0 lg:sticky shadow-2xl shadow-slate-900 border-2 rounded-md border-slate-800 z-10 h-full flex w-auto dark:bg-slate-800 w-[16rem]  ${
         !isOpen ? "translate-x-[-18rem] lg:translate-x-0" : "translate-x-0"
       }`}
     >
@@ -28,7 +28,7 @@ const Sidebar = ({ isOpen }: SidebarProps) => {
       >
         <div className="flex flex-row flex-nowrap items-center justify-center mt-2 mb-8 h-16 align-middle">
           <img src={Logo} alt="logo" className="w-16 h-16" />
-          <h1 className="pl-3 text-red-600 font-bold text-2xl">Bull Bills</h1>
+          <h1 className=" text-red-600 font-bold text-2xl">Bull Bills</h1>
         </div>
         <nav className="px-4 w-auto">
           <ul className="group flex flex-col flex-nowrap transition-all ">
